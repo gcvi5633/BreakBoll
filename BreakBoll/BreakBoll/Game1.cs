@@ -19,19 +19,21 @@ namespace BreakBoll
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D myt, myt1, blc;
+        Texture2D myt, myt1, blc, brickImage;
         ClassSprite myclass, myclass2;
-        ClassSprite[] block;
         bool endgameswitch;   //用來開關是否要關閉遊戲
         SpriteFont Sf;//加入一個文字
         int num, ang; //設一個數字與一個旋轉的角度
-        
+        Brick[,] brick;
+        int bricksWide = 10;
+        int bricksHigh = 5;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 640;
-            graphics.PreferredBackBufferHeight = 480;
-            graphics.ApplyChanges();
+            graphics.PreferredBackBufferWidth = 800;
+            graphics.PreferredBackBufferHeight = 600;
+            graphics.ApplyChanges();  
             Content.RootDirectory = "Content";
         }
 
@@ -62,8 +64,8 @@ namespace BreakBoll
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             Sf = Content.Load<SpriteFont>("SpriteFont1");//將文字給讀取進來
-            myt = Content.Load<Texture2D>("BOLL");           
-
+            myt = Content.Load<Texture2D>("BOLL");
+            brickImage = Content.Load<Texture2D>("brick1");
             //做一個板子
             int gx = 64;
             int gy = 16;
@@ -78,14 +80,13 @@ namespace BreakBoll
             myclass = new ClassSprite(myt, new Vector2(myclass2.position.X, myclass2.position.Y - 200), new Vector2(graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height));  //設定ClassSprite的三個參數
             myclass.velocity = new Vector2(5, 3); //設定球的移動速度
 
-            blc = new Texture2D(this.GraphicsDevice, 100, 30);
-            Color[] color2 = new Color[100 * 30];
-            for (int i = 0; i < 100 * 30; i++)
-                color2[i] = new Color(0, 0, 255, 255);
-            blc.SetData(color2);
-            
-            
-            //myclass2.velocity = new Vector2(-10, -20);
+            /*for (int i = 0; i < 6; i++)
+            {
+                for(int j = 0; j<0; j++)
+                {
+                    block[i, j] = new ClassSprite();
+                }
+            }*/
             // TODO: use this.Content to load your game content here
         }
 
@@ -107,14 +108,12 @@ namespace BreakBoll
         {
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
-            
+                this.Exit();            
 
             //開啟鍵盤控制
             KeyboardState newkeyboard;
             newkeyboard = Keyboard.GetState();
-            endgameswitch = myclass.Move();
-            
+            endgameswitch = myclass.Move();            
             
             if (!endgameswitch)
             {
@@ -140,9 +139,6 @@ namespace BreakBoll
             //myclass2.Move();
             if (myclass.Collides(myclass2))  //如果 myclass 碰到 myclass2
             {
-                /*Vector2 tmp = myclass.velocity;
-                myclass.velocity = myclass2.velocity;
-                myclass2.velocity = tmp;*/
                 myclass.velocity.Y *= -1;  //當球碰到板子就會以 Y 的反方向來回彈
                 num++;
             }
@@ -162,13 +158,14 @@ namespace BreakBoll
             spriteBatch.Begin();
             spriteBatch.Draw(myclass.texture, myclass.position, Color.White);           //使用myclass畫出來
             spriteBatch.Draw(myclass2.texture, myclass2.position, Color.White);         //畫板子
-            spriteBatch.Draw(block.texture, block.position, Color.White);
-
+            
             string message = "Score: " + num.ToString();//做一個 message 的字串
             Vector2 fontorig = Sf.MeasureString(message) / 2;//將 fontorig 設為 message 字串長度的 1/2 倍
             Vector2 fontpos = new Vector2(graphics.GraphicsDevice.Viewport.Width / 2, 50);
 
-            
+            foreach (Brick brick in brick)
+                brick.Draw(spriteBatch);
+
             //載入 文字,字串   ,文字位置,文字顏色   ,角度                     ,文字中點,文字大小,效果        ,文字深度
             spriteBatch.DrawString(Sf, message, fontpos, Color.Red, 0, fontorig, 3.0f, SpriteEffects.None, 0);
 
@@ -185,7 +182,46 @@ namespace BreakBoll
             base.Draw(gameTime);
 
         }
+        private void StartGame()
+        {
+            brick = new Brick[bricksWide, bricksHigh];
 
+            for (int y = 0; y < bricksHigh; y++)
+            {
+                Color tint = Color.White;
+
+                switch (y)
+                {
+                    case 0:
+                        tint = Color.Blue;
+                        break;
+                    case 1:
+                        tint = Color.Red;
+                        break;
+                    case 2:
+                        tint = Color.Green;
+                        break;
+                    case 3:
+                        tint = Color.Yellow;
+                        break;
+                    case 4:
+                        tint = Color.Purple;
+                        break;
+                }
+
+                for (int x = 0; x < bricksWide; x++)
+                {
+                    brick[x, y] = new Brick(
+                        brickImage,
+                        new Rectangle(
+                            x * brickImage.Width,
+                            y * brickImage.Height,
+                            brickImage.Width,
+                            brickImage.Height),
+                        tint);
+                }
+            }
+        }
     }
 
 }

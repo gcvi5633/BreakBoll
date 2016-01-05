@@ -1,2 +1,5 @@
 Content\SpriteFont1.xnb
 Content\BOLL.xnb
+Content\brick1.xnb
+Content\brick2.xnb
+Content\brick3.xnb

@@ -16,3 +16,21 @@ c:\users\user\documents\visual studio 2015\Projects\BreakBoll\BreakBoll\BreakBol
 c:\users\user\documents\visual studio 2015\Projects\BreakBoll\BreakBoll\BreakBoll\obj\x86\Debug\BreakBoll.exe
 c:\users\user\documents\visual studio 2015\Projects\BreakBoll\BreakBoll\BreakBoll\obj\x86\Debug\BreakBoll.pdb
 c:\users\user\documents\visual studio 2015\Projects\BreakBoll\BreakBoll\BreakBoll\bin\x86\Debug\Content\BOLL.xnb
+D:\文件\BreakBoll\BreakBoll\BreakBoll\obj\x86\Debug\BreakBoll.csprojResolveAssemblyReference.cache
+D:\文件\BreakBoll\BreakBoll\BreakBoll\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\文件\BreakBoll\BreakBoll\BreakBoll\obj\x86\Debug\BreakBoll.exe
+D:\文件\BreakBoll\BreakBoll\BreakBoll\obj\x86\Debug\BreakBoll.pdb
+D:\文件\BreakBoll\BreakBoll\BreakBoll\bin\x86\Debug\Content\SpriteFont1.xnb
+D:\文件\BreakBoll\BreakBoll\BreakBoll\bin\x86\Debug\Content\BOLL.xnb
+D:\文件\BreakBoll\BreakBoll\BreakBoll\bin\x86\Debug\BreakBoll.exe
+D:\文件\BreakBoll\BreakBoll\BreakBoll\bin\x86\Debug\BreakBoll.pdb
+D:\文件\BreakBoll\BreakBoll\BreakBoll\bin\x86\Debug\Microsoft.Xna.Framework.dll
+D:\文件\BreakBoll\BreakBoll\BreakBoll\bin\x86\Debug\Microsoft.Xna.Framework.Game.dll
+D:\文件\BreakBoll\BreakBoll\BreakBoll\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.dll
+D:\文件\BreakBoll\BreakBoll\BreakBoll\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
+D:\文件\BreakBoll\BreakBoll\BreakBoll\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.dll
+D:\文件\BreakBoll\BreakBoll\BreakBoll\bin\x86\Debug\Microsoft.Xna.Framework.xml
+D:\文件\BreakBoll\BreakBoll\BreakBoll\bin\x86\Debug\Microsoft.Xna.Framework.Game.xml
+D:\文件\BreakBoll\BreakBoll\BreakBoll\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
+D:\文件\BreakBoll\BreakBoll\BreakBoll\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
+D:\文件\BreakBoll\BreakBoll\BreakBoll\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
